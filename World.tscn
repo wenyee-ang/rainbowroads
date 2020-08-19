@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://main_char_front_sprite.png" type="Texture" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+
+[node name="World" type="Node"]
+
+[node name="PlayerBody" type="KinematicBody2D" parent="."]
+position = Vector2( 416, 256 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MCSprite" type="Sprite" parent="PlayerBody"]
+texture = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="PlayerBody"]
+position = Vector2( 1, 0 )
+current = true
+smoothing_enabled = true
+drag_margin_left = 0.4
+drag_margin_top = 0.4
+drag_margin_right = 0.4
+drag_margin_bottom = 0.4
+editor_draw_drag_margin = true
+
+[node name="icon" type="Sprite" parent="."]
+position = Vector2( 480, 416 )
+texture = ExtResource( 3 )
