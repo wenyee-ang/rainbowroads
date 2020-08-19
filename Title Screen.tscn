@@ -51,16 +51,19 @@ custom_constants/separation = 17
 
 [node name="NewGameButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
 margin_right = 131.0
+scene_to_load = ""
 
 [node name="ContinueButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
 margin_top = 37.0
 margin_right = 131.0
 margin_bottom = 57.0
+script = null
 
 [node name="OptionsButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 5 )]
 margin_top = 74.0
 margin_right = 131.0
 margin_bottom = 94.0
+script = null
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow"]
 margin_left = 135.0
