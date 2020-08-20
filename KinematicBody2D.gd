@@ -3,10 +3,10 @@ extends KinematicBody2D
 
 var motion = Vector2()
 
-var mcFront = preload("res://main_char_front_sprite.png")
-var mcBack = preload("res://main_char_back_sprite.png")
-var mcRight = preload("res://main_char_rightside_sprite.png")
-var mcLeft = preload("res://main_char_leftside_sprite.png")
+var mcFront = preload("res://assets/main_char_front_sprite.png")
+var mcBack = preload("res://assets/main_char_back_sprite.png")
+var mcRight = preload("res://assets/main_char_rightside_sprite.png")
+var mcLeft = preload("res://assets/main_char_leftside_sprite.png")
 
 
 func _physics_process(delta):

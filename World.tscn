@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
-[ext_resource path="res://main_char_front_sprite.png" type="Texture" id=2]
+[ext_resource path="res://assets/main_char_front_sprite.png" type="Texture" id=2]
 
 [node name="World" type="Node"]
 
