@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://menu_assets/menu_background.png" type="Texture" id=1]
+[ext_resource path="res://menu_assets/resized_title_background.png" type="Texture" id=1]
 [ext_resource path="res://scrolling_background.gd" type="Script" id=2]
 [ext_resource path="res://menu_assets/title_arch.png" type="Texture" id=3]
 [ext_resource path="res://menu_assets/Pangolin-Regular.ttf" type="DynamicFontData" id=4]
@@ -40,15 +40,13 @@ material = SubResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 960.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
 texture = ExtResource( 1 )
 stretch_mode = 2
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-scroll_speed = 0.0
+scroll_speed = 100.0
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 anchor_right = 1.0
