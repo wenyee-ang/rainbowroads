@@ -10,7 +10,7 @@ code = "shader_type canvas_item;
 uniform float scroll_speed;
 void fragment() {
 	vec2 shifteduv = UV;
-	shifteduv.x += TIME + scroll_speed;
+	shifteduv.x += TIME*0.4 + scroll_speed;
 	vec4 col = texture(TEXTURE, shifteduv);
 	COLOR = col;
 }"
@@ -35,7 +35,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 material = SubResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -46,9 +46,9 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-scroll_speed = 100.0
+scroll_speed = 0.1
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="Arch" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 3 )
@@ -94,8 +94,8 @@ __meta__ = {
 [node name="HowToPlay" type="Button" parent="Buttons"]
 margin_top = 50.0
 margin_right = 500.0
-margin_bottom = 70.0
-rect_min_size = Vector2( 500, 10 )
+margin_bottom = 96.0
+rect_min_size = Vector2( 500, 46 )
 flat = true
 
 [node name="Label" type="Label" parent="Buttons/HowToPlay"]
