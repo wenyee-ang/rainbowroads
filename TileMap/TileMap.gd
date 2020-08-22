@@ -9,9 +9,12 @@ const bend_id = 2
 
 #Corresponds the id of a tile to sides it connects. N:0, E:1, S:2, W:3
 const bridge_ids = {
-	1: [3,1],		#horizontal
-	3: [0,2],		#vertical
-	bend_id: [1,2]	#bend. additional code needed to handle reflections
+	0: [3,1],		#horizontal
+	1: [0,2],		#vertical
+	2: [1,2],
+	3: [3,2],
+	4: [3,0],
+	5: [0,1]
 }
 
 const direction_vectors = {
@@ -62,11 +65,13 @@ func path_from(from, to):
 	
 
 func _on_Button_pressed():
-	var cells = get_used_cells_by_id(bend_id)
+	var cells = get_used_cells()
 	for cell in cells:
-		set_cellv(cell, bend_id,
-			is_cell_x_flipped(cell.x,cell.y), 
-			!is_cell_y_flipped(cell.x, cell.y))
+		var id = get_cellv(cell)
+		if id >= 0:
+			
+			set_cellv(cell, (id + 3) % 6)
+		#set_cellv(cell, bend_id,
 	
 	_check_path()	
 
@@ -75,20 +80,20 @@ func _on_Button_pressed():
 func _bridge_joined_sides(pos):
 	var tile_id = get_cellv(pos)
 	
-	if tile_id == bend_id:
-		var joined = bridge_ids[bend_id]
-		
-		if is_cell_x_flipped(pos.x, pos.y):
-			for side in range(0, joined.size()):
-				if joined[side] % 2 == 1:
-					joined[side] = (joined[side] + 2) % 4
-					
-		if is_cell_y_flipped(pos.x, pos.y):
-			for side in range(0, joined.size()):
-				if joined[side] % 2 == 0:
-					joined[side] = (joined[side] + 2) % 4
-					
-		return joined
+#	if tile_id == bend_id:
+#		var joined = bridge_ids[bend_id]
+#
+#		if is_cell_x_flipped(pos.x, pos.y):
+#			for side in range(0, joined.size()):
+#				if joined[side] % 2 == 1:
+#					joined[side] = (joined[side] + 2) % 4
+#
+#		if is_cell_y_flipped(pos.x, pos.y):
+#			for side in range(0, joined.size()):
+#				if joined[side] % 2 == 0:
+#					joined[side] = (joined[side] + 2) % 4
+#
+#		return joined
 			
 	
 	return bridge_ids[tile_id]
