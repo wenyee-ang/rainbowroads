@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://TileMap/TileMap.gd" type="Script" id=1]
+[ext_resource path="res://TileMap/BridgeTileMap.gd" type="Script" id=1]
 [ext_resource path="res://assets/bridge6.png" type="Texture" id=2]
 [ext_resource path="res://assets/bridge1.png" type="Texture" id=3]
 [ext_resource path="res://assets/bridge2.png" type="Texture" id=4]
@@ -95,29 +95,7 @@ resource_local_to_scene = true
 5/shapes = [  ]
 5/z_index = 0
 
-[node name="Node2D" type="Node2D"]
-
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap"]
 tile_set = SubResource( 1 )
 format = 1
-tile_data = PoolIntArray( 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 3, 0, 131076, 1, 0, 196611, 2, 0, 196612, 4, 0, 262147, 5, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0 )
 script = ExtResource( 1 )
-
-[node name="Label" type="Label" parent="TileMap"]
-margin_left = 312.749
-margin_top = 5.96228
-margin_right = 461.749
-margin_bottom = 19.9623
-text = "No path from 1,1 to 6,4"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="."]
-margin_right = 12.0
-margin_bottom = 20.0
-text = "Flip Vertical"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-[connection signal="pressed" from="Button" to="TileMap" method="_on_Button_pressed"]

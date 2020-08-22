@@ -24,20 +24,39 @@ const direction_vectors = {
 	3: Vector2(-1,0)
 }
 
+const direction_translate = {
+	'up': 0,
+	'right': 1,
+	'down': 2,
+	'left': 3
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_check_path()
+	pass
+	
+	
+#	_check_path()
 
-func _check_path():
-	if path_from(Vector2(1,1), Vector2(6,4)):
-		get_node("Label").text = "Path exists from 1,1 to 6,4"
-	else:
-		get_node("Label").text = "No path from 1,1 to 6,4."
+#func _check_path():
+#	if path_from(Vector2(1,1), Vector2(6,4)):
+#		get_node("Label").text = "Path exists from 1,1 to 6,4"
+#	else:
+#		get_node("Label").text = "No path from 1,1 to 6,4."
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
+
+func place_tile(player_pos, direction):
+	print(player_pos, get_node("..").position)
+	var new_pos = player_pos - get_node("..").position
+	var player_cell = world_to_map(new_pos)
+	var target_cell = player_cell + direction_vectors[direction_translate[direction]]
+	
+	set_cellv(target_cell, 0)
+	
 
 func _path_from(from, to, direction_arrived):
 	
@@ -64,16 +83,16 @@ func path_from(from, to):
 	return _path_from(from, to, -1)	
 	
 
-func _on_Button_pressed():
-	var cells = get_used_cells()
-	for cell in cells:
-		var id = get_cellv(cell)
-		if id >= 0:
-			
-			set_cellv(cell, (id + 3) % 6)
-		#set_cellv(cell, bend_id,
-	
-	_check_path()	
+#func _on_Button_pressed():
+#	var cells = get_used_cells()
+#	for cell in cells:
+#		var id = get_cellv(cell)
+#		if id >= 0:
+#
+#			set_cellv(cell, (id + 3) % 6)
+#		#set_cellv(cell, bend_id,
+#
+#	_check_path()	
 
 
 
@@ -98,3 +117,5 @@ func _bridge_joined_sides(pos):
 	
 	return bridge_ids[tile_id]
 	
+
+
