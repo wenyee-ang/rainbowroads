@@ -487,8 +487,8 @@ editor_draw_drag_margin = true
 position = Vector2( 416, 256 )
 
 [node name="BridgeTileMap" parent="Environment" instance=ExtResource( 32 )]
+z_index = 2
 tile_set = SubResource( 21 )
-tile_data = PoolIntArray( 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 3, 0, 131076, 1, 0, 196611, 2, 0, 196612, 4, 0, 262147, 5, 0, 262148, 0, 0 )
 
 [node name="BaseTileMap" type="TileMap" parent="Environment"]
 position = Vector2( -416, -256 )

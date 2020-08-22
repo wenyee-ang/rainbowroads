@@ -24,6 +24,13 @@ const direction_vectors = {
 	3: Vector2(-1,0)
 }
 
+const direction_translate = {
+	'up': 0,
+	'right': 1,
+	'down': 2,
+	'left': 3
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -42,9 +49,14 @@ func _ready():
 #	pass
 
 
-func place_tile(position, direction):
-	print(position, direction)
-	get_node("./BaseTileMap").set_cellv(Vector2(1,1), 0)
+func place_tile(player_pos, direction):
+	print(player_pos, get_node("..").position)
+	var new_pos = player_pos - get_node("..").position
+	var player_cell = world_to_map(new_pos)
+	var target_cell = player_cell + direction_vectors[direction_translate[direction]]
+	
+	set_cellv(target_cell, 0)
+	
 
 func _path_from(from, to, direction_arrived):
 	
