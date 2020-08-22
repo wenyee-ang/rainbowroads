@@ -2,11 +2,20 @@ extends KinematicBody2D
 #controls movement of MC sprite
 
 var motion = Vector2()
+var last_direction = Vector2(0, 1) #default pointing down
 
-var mcFront = preload("res://assets/main_char_front_sprite.png")
-var mcBack = preload("res://assets/main_char_back_sprite.png")
-var mcRight = preload("res://assets/main_char_rightside_sprite.png")
-var mcLeft = preload("res://assets/main_char_leftside_sprite.png")
+
+func get_direction(direction: Vector2):
+	var norm_direction = direction.normalized()
+	if norm_direction.y >= 0.707:
+		return "down"
+	elif norm_direction.y <= -0.707:
+		return "up"
+	elif norm_direction.x <= -0.707:
+		return "left"
+	elif norm_direction.x >= 0.707:
+		return "right"
+	return "down"
 
 
 func _physics_process(delta):
@@ -15,29 +24,42 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("ui_right"): 
 		# right arrow key pressed
-		mcSprite.set_texture(mcRight)
+		$MCSprite.play("walking_right")
 		motion.x = 150 
-		
+		last_direction = motion
 		#motion increases by 100 pixels per sec to the right
 		
 	elif Input.is_action_pressed("ui_left"):
 		# left arrow key pressed
-		mcSprite.set_texture(mcLeft)
+		$MCSprite.play("walking_left")
 		motion.x = -150
+		last_direction = motion
 		
 	elif Input.is_action_pressed("ui_up"):
 		# up arrow key pressed
-		mcSprite.set_texture(mcBack)
+		$MCSprite.play("walking_back")
 		motion.y = -150
+		last_direction = motion
 		
 	elif Input.is_action_pressed("ui_down"):
 		# down arrow key pressed
-		mcSprite.set_texture(mcFront)
+		$MCSprite.play("walking_front")
 		motion.y = 150
+		last_direction = motion
 	
 	else:
 		motion.x = 0
 		motion.y = 0
+		var animation = get_direction(last_direction)
+		
+		if (animation == "down"):
+			$MCSprite.play("idle_front")
+		elif (animation == "up"):
+			$MCSprite.play("idle_back")
+		elif (animation == "left"):
+			$MCSprite.play("idle_left")
+		else:
+			$MCSprite.play("idle_right")
 		
 	
 	move_and_slide(motion)
