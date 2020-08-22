@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://assets/walking/back/4.png" type="Texture" id=2]
@@ -25,6 +25,13 @@
 [ext_resource path="res://assets/World Tilemap/tile_arrowUp.png" type="Texture" id=23]
 [ext_resource path="res://assets/World Tilemap/tile_arrowDown.png" type="Texture" id=24]
 [ext_resource path="res://assets/World Tilemap/tile_arrowRight.png" type="Texture" id=25]
+[ext_resource path="res://BridgeControl.gd" type="Script" id=26]
+[ext_resource path="res://assets/bridge1.png" type="Texture" id=27]
+[ext_resource path="res://assets/bridge2.png" type="Texture" id=28]
+[ext_resource path="res://assets/bridge3.png" type="Texture" id=29]
+[ext_resource path="res://assets/bridge5.png" type="Texture" id=30]
+[ext_resource path="res://assets/bridge6.png" type="Texture" id=31]
+[ext_resource path="res://assets/bridge4.png" type="Texture" id=32]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -33,6 +40,7 @@ animations = [ {
 "name": "idle_front",
 "speed": 1.0
 }, {
+<<<<<<< HEAD
 "frames": [ ExtResource( 12 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "walking_left",
@@ -44,19 +52,46 @@ animations = [ {
 "speed": 6.0
 }, {
 "frames": [ ExtResource( 15 ) ],
+=======
+"frames": [ ExtResource( 10 ) ],
+>>>>>>> protag
 "loop": false,
 "name": "idle_left",
 "speed": 1.0
 }, {
+<<<<<<< HEAD
 "frames": [ ExtResource( 16 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 19 ) ],
 "loop": true,
 "name": "walking_right",
 "speed": 6.0
 }, {
 "frames": [ ExtResource( 10 ) ],
+=======
+"frames": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "walking_front",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "walking_back",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+>>>>>>> protag
 "loop": false,
 "name": "idle_back",
 "speed": 1.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "walking_left",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "walking_right",
+"speed": 6.0
 }, {
 "frames": [ ExtResource( 14 ) ],
 "loop": false,
@@ -413,3 +448,83 @@ z_index = 4
 tile_set = SubResource( 20 )
 format = 1
 tile_data = PoolIntArray( -262140, 1, 0 )
+
+[node name="BridgeControl" type="Control" parent="."]
+script = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="BridgeControl"]
+
+[node name="Bridge1" type="TextureButton" parent="BridgeControl/CanvasLayer"]
+margin_left = 271.27
+margin_top = 492.156
+margin_right = 335.27
+margin_bottom = 556.156
+texture_normal = ExtResource( 27 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bridge2" type="TextureButton" parent="BridgeControl/CanvasLayer"]
+margin_left = 353.387
+margin_top = 493.1
+margin_right = 417.387
+margin_bottom = 557.1
+texture_normal = ExtResource( 28 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bridge3" type="TextureButton" parent="BridgeControl/CanvasLayer"]
+margin_left = 434.616
+margin_top = 486.549
+margin_right = 498.616
+margin_bottom = 550.549
+texture_normal = ExtResource( 29 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bridge4" type="TextureButton" parent="BridgeControl/CanvasLayer"]
+margin_left = 531.257
+margin_top = 486.549
+margin_right = 595.257
+margin_bottom = 550.549
+texture_normal = ExtResource( 32 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bridge5" type="TextureButton" parent="BridgeControl/CanvasLayer"]
+margin_left = 615.162
+margin_top = 494.789
+margin_right = 679.162
+margin_bottom = 558.789
+texture_normal = ExtResource( 30 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bridge6" type="TextureButton" parent="BridgeControl/CanvasLayer"]
+margin_left = 693.823
+margin_top = 494.04
+margin_right = 757.823
+margin_bottom = 558.04
+texture_normal = ExtResource( 31 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="BridgeControl/CanvasLayer/Bridge1" to="BridgeControl" method="_on_Bridge1_pressed"]
+[connection signal="pressed" from="BridgeControl/CanvasLayer/Bridge2" to="BridgeControl" method="_on_Bridge2_pressed"]
+[connection signal="pressed" from="BridgeControl/CanvasLayer/Bridge3" to="BridgeControl" method="_on_Bridge3_pressed"]
+[connection signal="pressed" from="BridgeControl/CanvasLayer/Bridge4" to="BridgeControl" method="_on_Bridge4_pressed"]
+[connection signal="pressed" from="BridgeControl/CanvasLayer/Bridge5" to="BridgeControl" method="_on_Bridge5_pressed"]
+[connection signal="pressed" from="BridgeControl/CanvasLayer/Bridge6" to="BridgeControl" method="_on_Bridge6_pressed"]
