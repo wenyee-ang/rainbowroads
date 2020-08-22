@@ -510,7 +510,6 @@ format = 1
 tile_data = PoolIntArray( -262140, 1, 0 )
 
 [node name="BridgeTileMap" parent="Environment" instance=ExtResource( 33 )]
-z_index = 2
 tile_set = SubResource( 21 )
 
 [node name="BridgeControl" type="Control" parent="."]
