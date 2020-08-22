@@ -4,7 +4,6 @@ extends KinematicBody2D
 var motion = Vector2()
 var last_direction = Vector2(0, 1) #default pointing down
 
-
 func get_direction(direction: Vector2):
 	var norm_direction = direction.normalized()
 	if norm_direction.y >= 0.707:
@@ -46,6 +45,10 @@ func _physics_process(delta):
 		$MCSprite.play("walking_front")
 		motion.y = 200
 		last_direction = motion
+	
+	#Ivy's bit (god i hope i don't mess this up)
+	elif Input.is_action_pressed("ui_accept"):
+		get_node("../Environment/BridgeTileMap").place_tile(position, get_direction(last_direction))
 	
 	else:
 		motion.x = 0
