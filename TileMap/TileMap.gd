@@ -9,8 +9,8 @@ const bend_id = 2
 
 #Corresponds the id of a tile to sides it connects. N:0, E:1, S:2, W:3
 const bridge_ids = {
-	1: [3,1],		#horizontal
-	3: [0,2],		#vertical
+	0: [3,1],		#horizontal
+	1: [0,2],		#vertical
 	bend_id: [1,2]	#bend. additional code needed to handle reflections
 }
 
