@@ -25,26 +25,26 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_right"): 
 		# right arrow key pressed
 		$MCSprite.play("walking_right")
-		motion.x = 150 
+		motion.x = 200 
 		last_direction = motion
 		#motion increases by 100 pixels per sec to the right
 		
 	elif Input.is_action_pressed("ui_left"):
 		# left arrow key pressed
 		$MCSprite.play("walking_left")
-		motion.x = -150
+		motion.x = -200
 		last_direction = motion
 		
 	elif Input.is_action_pressed("ui_up"):
 		# up arrow key pressed
 		$MCSprite.play("walking_back")
-		motion.y = -150
+		motion.y = -200
 		last_direction = motion
 		
 	elif Input.is_action_pressed("ui_down"):
 		# down arrow key pressed
 		$MCSprite.play("walking_front")
-		motion.y = 150
+		motion.y = 200
 		last_direction = motion
 	
 	else:
