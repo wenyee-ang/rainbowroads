@@ -5,7 +5,7 @@ extends TileMap
 # var a = 2
 # var b = "text"
 
-const bend_id = 2
+var current_bridge = 0
 
 #Corresponds the id of a tile to sides it connects. N:0, E:1, S:2, W:3
 const bridge_ids = {
@@ -53,9 +53,14 @@ func place_tile(player_pos, direction):
 	print(player_pos, get_node("..").position)
 	var new_pos = player_pos - get_node("..").position
 	var player_cell = world_to_map(new_pos)
-	var target_cell = player_cell + direction_vectors[direction_translate[direction]]
+	var target_cell
 	
-	set_cellv(target_cell, 0)
+	if get_cellv(player_cell) == -1:
+		target_cell = player_cell
+	else:
+		target_cell = player_cell + direction_vectors[direction_translate[direction]]
+	
+	set_cellv(target_cell, current_bridge)
 	
 
 func _path_from(from, to, direction_arrived):
@@ -119,3 +124,6 @@ func _bridge_joined_sides(pos):
 	
 
 
+
+func _select_bridge(piece):
+	current_bridge = piece

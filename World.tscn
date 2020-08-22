@@ -46,6 +46,11 @@ animations = [ {
 "name": "idle_back",
 "speed": 1.0
 }, {
+"frames": [ ExtResource( 16 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "walking_right",
+"speed": 6.0
+}, {
 "frames": [ ExtResource( 14 ) ],
 "loop": false,
 "name": "idle_right",
@@ -56,19 +61,14 @@ animations = [ {
 "name": "idle_left",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 16 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 19 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
-"name": "walking_right",
+"name": "walking_left",
 "speed": 6.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "walking_front",
-"speed": 6.0
-}, {
-"frames": [ ExtResource( 12 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "walking_left",
 "speed": 6.0
 }, {
 "frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 2 ) ],
@@ -585,6 +585,12 @@ stretch_mode = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="bridge1" from="BridgeControl" to="Environment/BridgeTileMap" method="_select_bridge" binds= [ 0 ]]
+[connection signal="bridge2" from="BridgeControl" to="Environment/BridgeTileMap" method="_select_bridge" binds= [ 1 ]]
+[connection signal="bridge3" from="BridgeControl" to="Environment/BridgeTileMap" method="_select_bridge" binds= [ 2 ]]
+[connection signal="bridge4" from="BridgeControl" to="Environment/BridgeTileMap" method="_select_bridge" binds= [ 3 ]]
+[connection signal="bridge5" from="BridgeControl" to="Environment/BridgeTileMap" method="_select_bridge" binds= [ 4 ]]
+[connection signal="bridge6" from="BridgeControl" to="Environment/BridgeTileMap" method="_select_bridge" binds= [ 5 ]]
 [connection signal="pressed" from="BridgeControl/CanvasLayer/Bridge1" to="BridgeControl" method="_on_Bridge1_pressed"]
 [connection signal="pressed" from="BridgeControl/CanvasLayer/Bridge2" to="BridgeControl" method="_on_Bridge2_pressed"]
 [connection signal="pressed" from="BridgeControl/CanvasLayer/Bridge3" to="BridgeControl" method="_on_Bridge3_pressed"]

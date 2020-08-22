@@ -47,7 +47,7 @@ func _physics_process(delta):
 		last_direction = motion
 	
 	#Ivy's bit (god i hope i don't mess this up)
-	elif Input.is_action_pressed("ui_accept"):
+	elif Input.is_action_just_released("ui_accept"):
 		get_node("../Environment/BridgeTileMap").place_tile(position, get_direction(last_direction))
 	
 	else:
@@ -67,4 +67,5 @@ func _physics_process(delta):
 	
 	move_and_slide(motion)
 	
+
 
