@@ -52,6 +52,7 @@ func _ready():
 func place_tile(player_pos, direction):
 	print(player_pos, get_node("..").position)
 	var new_pos = player_pos - get_node("..").position
+	new_pos = new_pos + Vector2(0,48)
 	var player_cell = world_to_map(new_pos)
 	var target_cell
 	
