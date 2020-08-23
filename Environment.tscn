@@ -1117,3 +1117,9 @@ tile_set = SubResource( 53 )
 position = Vector2( -439.812, 1274.89 )
 z_index = 4
 texture = ExtResource( 37 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2( -80, 1028 )
+polygon = PoolVector2Array( -63.2534, -63.3152, 192.747, -39.3152, 188.747, 64.6848, 264.747, 120.685, 256.747, 444.685, 260.747, 512.685, 208.747, 536.685, 148.747, 564.685, -359.253, 560.685, -407.253, 512.685, -415.253, 416.685, -491.253, 376.685, -503.253, 324.685, -559.253, 292.685, -559.253, 112.685, -435.253, 88.6848, -431.253, 20.6848, -83.2534, 32.6848 )
