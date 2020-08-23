@@ -22,6 +22,6 @@ func _process(delta):
 	print($Environment/BaseTileMap)
 	
 	if bridge_tile != -1:
-		$Environment/BaseTileMap.set_collision_mask_bit(0,false)
+		$Environment/BaseTileMap.set_collision_layer_bit(1,false)
 	else: 
-		$Environment/BaseTileMap.set_collision_mask_bit(0,true)
+		$Environment/BaseTileMap.set_collision_layer_bit(1,true)
