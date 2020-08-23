@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=2]
+[gd_scene load_steps=91 format=2]
 
 [ext_resource path="res://assets/World Tilemap/medievalEnvironment_20.png" type="Texture" id=1]
 [ext_resource path="res://assets/World Tilemap/stormcloud2.png" type="Texture" id=2]
@@ -36,6 +36,7 @@
 [ext_resource path="res://assets/World Tilemap/house3.png" type="Texture" id=34]
 [ext_resource path="res://assets/World Tilemap/house2.png" type="Texture" id=35]
 [ext_resource path="res://assets/World Tilemap/tree3.png" type="Texture" id=36]
+[ext_resource path="res://npc_assets/girl.png" type="Texture" id=37]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 24.0401, 10.2546, 15.8418, 16.5239, 8.608, 29.0625, 3.30322, 39.1898, 3.30322, 48.3526, 4.74997, 63.7847, 0.409698, 62.338, 0.409698, 0.609566, 63.5848, 1.09182, 62.1381, 8.80787, 51.0463, 10.7369, 38.5077, 9.29012 )
@@ -1111,3 +1112,8 @@ tile_data = PoolIntArray( -458757, 4, 0, -458752, 5, 0, -393192, 5, 0, -262141, 
 [node name="BridgeTileMap" parent="." instance=ExtResource( 24 )]
 z_index = 4
 tile_set = SubResource( 53 )
+
+[node name="Girl" type="Sprite" parent="."]
+position = Vector2( -439.812, 1274.89 )
+z_index = 4
+texture = ExtResource( 37 )
