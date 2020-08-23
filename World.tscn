@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://assets/walking/back/4.png" type="Texture" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://Environment.tscn" type="PackedScene" id=20]
 [ext_resource path="res://BridgeControl.tscn" type="PackedScene" id=21]
 [ext_resource path="res://CollisionHandler.gd" type="Script" id=22]
+[ext_resource path="res://sound_assets/Oniku Loop2.wav" type="AudioStream" id=23]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -29,21 +30,6 @@ animations = [ {
 "loop": true,
 "name": "walking_back",
 "speed": 6.0
-}, {
-"frames": [ ExtResource( 15 ) ],
-"loop": false,
-"name": "idle_left",
-"speed": 1.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "walking_front",
-"speed": 6.0
-}, {
-"frames": [ ExtResource( 14 ) ],
-"loop": false,
-"name": "idle_right",
-"speed": 1.0
 }, {
 "frames": [ ExtResource( 10 ) ],
 "loop": false,
@@ -55,15 +41,30 @@ animations = [ {
 "name": "walking_right",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "walking_left",
+"name": "walking_front",
 "speed": 6.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": false,
+"name": "idle_left",
+"speed": 1.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": false,
 "name": "idle_front",
 "speed": 1.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": false,
+"name": "idle_right",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "walking_left",
+"speed": 6.0
 } ]
 
 [node name="World" type="Node"]
@@ -97,3 +98,7 @@ drag_margin_bottom = 0.4
 editor_draw_drag_margin = true
 
 [node name="Environment" parent="." instance=ExtResource( 20 )]
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
+autoplay = true

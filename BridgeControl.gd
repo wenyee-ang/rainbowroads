@@ -57,9 +57,6 @@ func _process(delta):
 		make_hidden()
 		emit_signal("bridge6")
 		print("bridge6")
-	
-	elif Input.is_action_pressed("ui_accept"):
-		make_hidden()
 
 
 func _on_Bridge1_pressed():
