@@ -4,6 +4,8 @@ extends KinematicBody2D
 var motion = Vector2()
 var last_direction = Vector2(0, 1) #default pointing down
 
+var has_teddy = false
+
 func get_direction(direction: Vector2):
 	var norm_direction = direction.normalized()
 	if norm_direction.y >= 0.707:
@@ -77,6 +79,8 @@ func _physics_process(delta):
 	
 	#Ivy's bit (god i hope i don't mess this up)
 	elif Input.is_action_just_released("ui_accept"):
+		if !(has_teddy) and _pickup_teddy(get_direction(last_direction)):
+			return
 		get_node("../Environment/BridgeTileMap").place_tile(position, get_direction(last_direction))
 		$Sparkling.play()
 		
@@ -127,6 +131,35 @@ func _animate_entrance(delta):
 	animate_time_elapsed += delta
 	
 	
+const direction_vectors = {
+	0: Vector2(0,-1),
+	1: Vector2(1,0),
+	2: Vector2(0,1),
+	3: Vector2(-1,0)
+}
 
+const direction_translate = {
+	'up': 0,
+	'right': 1,
+	'down': 2,
+	'left': 3
+}
+	
+func _pickup_teddy(direction):
+	var add_map = get_node(("../Environment/AdditionalElements"))
+	var player_cell = get_node("../Environment/BridgeTileMap").tile_from_player_pos(position)
+	
+	var target_cell = player_cell + direction_vectors[direction_translate[direction]]
+	
+	if add_map.get_cellv(target_cell) == 20:
+		add_map.set_cellv(target_cell, -1)
+		has_teddy = true
+		return true
+		
+	return false
+	
+	
+	
+	
 
 
