@@ -87,7 +87,7 @@ func _physics_process(delta):
 	elif Input.is_action_just_released("ui_delete"):
 		get_node("../Environment/BridgeTileMap").delete_tile(position, get_direction(last_direction))
 		$Delete.play()
-	
+		
 	else:
 		motion.x = 0
 		motion.y = 0
