@@ -3,7 +3,7 @@ extends Control
 func _ready():
 	$LineHowtoPlay.hide()
 	$LineStart.hide()
-	$CanvasLayer/Tutorial.hide()
+	$CanvasLayer/Tutorial.hide() 
 
 func _on_Start_pressed():
 	get_tree().change_scene("res://World.tscn")
