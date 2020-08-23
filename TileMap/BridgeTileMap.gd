@@ -82,9 +82,11 @@ func closest_bridge_pos(player_pos):
 	
 	var player_cell = tile_from_player_pos(player_pos)
 	var behind_cell = false
+	var direction
 	for i in range(0,4):
 		if get_cellv(player_cell+direction_vectors[i]) != -1:
 			behind_cell = player_cell + direction_vectors[i]
+			direction = i
 			
 			
 	if behind_cell:
@@ -92,6 +94,10 @@ func closest_bridge_pos(player_pos):
 		var return_pos = map_to_world(behind_cell)
 		return_pos = return_pos - Vector2(0,48)
 		return_pos += Vector2(32, 32)
+		
+		var behind_direction = (direction + 2) % 4
+		return_pos += Vector2(32,32) * direction_vectors[behind_direction]
+		
 		return_pos = return_pos + get_node("..").position
 		return return_pos
 	
