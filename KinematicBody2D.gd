@@ -126,7 +126,7 @@ func _animate_entrance(delta):
 		accept_input = false
 		get_node("../BridgeControl/CanvasLayer/Dialogue").show()
 		get_node("../BridgeControl/CanvasLayer/Dialogue/DialogueBox")._ready()
-		accept_input = true
+		
 	
 	animate_time_elapsed += delta
 	
