@@ -57,6 +57,7 @@ func _process(delta):
 		make_hidden()
 		emit_signal("bridge6")
 		print("bridge6")
+		
 
 
 func _on_Bridge1_pressed():
@@ -106,3 +107,9 @@ func make_hidden():
 			
 		if (get_node(node).is_visible()):
 			get_node(node).hide()
+
+func _on_exit_pressed():
+	$CanvasLayer/Tutorial.hide()
+
+func _on_exit_mouse_entered():
+	get_node("../PlayerBody/Select").play()

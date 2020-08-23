@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://menu_assets/resized_title_background.png" type="Texture" id=1]
 [ext_resource path="res://scrolling_background.gd" type="Script" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://GoToGame.gd" type="Script" id=5]
 [ext_resource path="res://sound_assets/Oniku Loop.wav" type="AudioStream" id=6]
 [ext_resource path="res://sound_assets/menu_selection.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/enter_key.png" type="Texture" id=8]
+[ext_resource path="res://assets/arrow_keys.png" type="Texture" id=9]
+[ext_resource path="res://menu_assets/cross icon.png" type="Texture" id=10]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -34,6 +37,32 @@ font_data = ExtResource( 4 )
 [sub_resource type="StyleBoxLine" id=5]
 color = Color( 0.556863, 0.956863, 1, 1 )
 thickness = 3
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0, 0, 0, 0.768627 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=9]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=10]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=11]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=12]
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxEmpty" id=13]
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
@@ -146,9 +175,144 @@ __meta__ = {
 [node name="Background Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Tutorial" type="Control" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TutorialPanel1" type="PanelContainer" parent="CanvasLayer/Tutorial"]
+margin_left = 60.4285
+margin_top = 34.4038
+margin_right = 179.429
+margin_bottom = 116.404
+rect_scale = Vector2( 7.63733, 6.44079 )
+custom_styles/panel = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Control" parent="CanvasLayer/Tutorial"]
+margin_top = 28.541
+margin_right = 40.0
+margin_bottom = 68.541
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnterKey" type="PanelContainer" parent="CanvasLayer/Tutorial/Text"]
+margin_left = 775.678
+margin_top = 220.421
+margin_right = 894.678
+margin_bottom = 302.421
+rect_scale = Vector2( 2.27185, 1.96045 )
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Tutorial/Text/EnterKey"]
+margin_right = 119.0
+margin_bottom = 82.0
+texture = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="CanvasLayer/Tutorial/Text"]
+margin_left = 137.179
+margin_top = 86.267
+margin_right = 358.179
+margin_bottom = 100.267
+rect_scale = Vector2( 1.65189, 1.86131 )
+custom_fonts/font = SubResource( 8 )
+text = "Use Arrow Keys or WASD to move."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer/Tutorial/Text"]
+margin_left = 134.35
+margin_top = 179.061
+margin_right = 595.35
+margin_bottom = 193.061
+rect_scale = Vector2( 1.65189, 1.86131 )
+custom_fonts/font = SubResource( 9 )
+text = "Use the Keys 1 to 6 or Click on the Icons below to Select a Rainbow Tile."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="CanvasLayer/Tutorial/Text"]
+margin_left = 132.35
+margin_top = 278.198
+margin_right = 593.35
+margin_bottom = 292.198
+rect_scale = Vector2( 1.65189, 1.86131 )
+custom_fonts/font = SubResource( 10 )
+text = "Press Enter to Set Down a Rainbow Tile."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="CanvasLayer/Tutorial/Text"]
+margin_left = 126.936
+margin_top = 373.779
+margin_right = 587.936
+margin_bottom = 387.779
+rect_scale = Vector2( 1.65189, 1.86131 )
+custom_fonts/font = SubResource( 11 )
+text = "Press Backspace to Delete a Rainbow Tile."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="CanvasLayer/Tutorial/Text"]
+margin_left = 128.35
+margin_top = 451.904
+margin_right = 589.35
+margin_bottom = 465.904
+rect_scale = Vector2( 1.65189, 1.86131 )
+custom_fonts/font = SubResource( 12 )
+text = "Follow the Arrow Sign Boards and Start Building!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArrowKey" type="PanelContainer" parent="CanvasLayer/Tutorial/Text"]
+margin_left = 732.18
+margin_top = 38.2478
+margin_right = 851.18
+margin_bottom = 120.248
+rect_scale = Vector2( 1.39149, 1.35726 )
+custom_styles/panel = SubResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Tutorial/Text/ArrowKey"]
+margin_right = 119.0
+margin_bottom = 82.0002
+texture = ExtResource( 9 )
+
+[node name="exit" type="TextureButton" parent="CanvasLayer/Tutorial"]
+margin_left = 906.029
+margin_top = 43.1945
+margin_right = 1626.03
+margin_bottom = 763.194
+rect_scale = Vector2( 0.0549512, 0.0549512 )
+texture_normal = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="mouse_entered" from="Buttons/Start" to="." method="_on_Start_mouse_entered"]
 [connection signal="mouse_exited" from="Buttons/Start" to="." method="_on_Start_mouse_exited"]
 [connection signal="pressed" from="Buttons/Start" to="." method="_on_Start_pressed"]
 [connection signal="mouse_entered" from="Buttons/HowToPlay" to="." method="_on_HowToPlay_mouse_entered"]
 [connection signal="mouse_exited" from="Buttons/HowToPlay" to="." method="_on_HowToPlay_mouse_exited"]
 [connection signal="pressed" from="Buttons/HowToPlay" to="." method="_on_HowToPlay_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Tutorial/exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/Tutorial/exit" to="." method="_on_exit_pressed"]
