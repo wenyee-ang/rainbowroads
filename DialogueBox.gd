@@ -21,10 +21,8 @@ var finished = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_dialogue()
-	
 
 func load_dialogue():
-	
 	if dialogue_index < start_dialogue.size():
 		$Text1.bbcode_text = start_dialogue[dialogue_index]
 		$Text1.percent_visible = 0

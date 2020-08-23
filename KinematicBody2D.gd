@@ -98,14 +98,11 @@ func _physics_process(delta):
 		else:
 			$MCSprite.play("idle_right")
 	
-	
 	move_and_slide(motion)
 	
 
 
 func _animate_entrance(delta):
-	
-	
 	if animate_time_elapsed < 1:
 		if not $CloseDoor.is_playing():
 			$CloseDoor.play()
@@ -119,11 +116,13 @@ func _animate_entrance(delta):
 		move_and_slide(Vector2(40,150))
 		$MCSprite.play("walking_front")
 		
+		
 	else:
 		entrance_animate = false
+		accept_input = false
+		get_node("../BridgeControl/CanvasLayer/Dialogue").show()
+		get_node("../BridgeControl/CanvasLayer/Dialogue/DialogueBox")._ready()
 		accept_input = true
-	
-	
 	
 	animate_time_elapsed += delta
 	

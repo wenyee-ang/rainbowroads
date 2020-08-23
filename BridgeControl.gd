@@ -16,6 +16,7 @@ func _ready():
 	$CanvasLayer/Borders/Container4.hide()
 	$CanvasLayer/Borders/Container5.hide()
 	$CanvasLayer/Borders/Container6.hide()
+	$CanvasLayer/Dialogue.hide()
 	
 	connect("bridge1", self, "make_visible", ["1"])
 	connect("bridge2", self, "make_visible", ["2"])
