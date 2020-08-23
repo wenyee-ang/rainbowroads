@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://assets/walking/back/4.png" type="Texture" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://sound_assets/grass_footstep.wav" type="AudioStream" id=25]
 [ext_resource path="res://sound_assets/menu_selection.wav" type="AudioStream" id=26]
 [ext_resource path="res://sound_assets/sfx_step_grass_r.wav" type="AudioStream" id=27]
+[ext_resource path="res://sound_assets/close_door.wav" type="AudioStream" id=28]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -116,6 +117,9 @@ stream = ExtResource( 26 )
 [node name="Delete" type="AudioStreamPlayer2D" parent="PlayerBody"]
 stream = ExtResource( 27 )
 volume_db = 8.0
+
+[node name="CloseDoor" type="AudioStreamPlayer2D" parent="PlayerBody"]
+stream = ExtResource( 28 )
 
 [node name="Environment" parent="." instance=ExtResource( 20 )]
 
