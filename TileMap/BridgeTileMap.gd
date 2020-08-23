@@ -84,7 +84,7 @@ func closest_bridge_pos(player_pos, direction):
 	var behind_cell = player_cell - direction_vectors[direction_translate[direction]]
 	var return_pos = map_to_world(behind_cell)
 	return_pos = return_pos - Vector2(0,48)
-	return_pos += Vector2(1, 16)
+	return_pos += Vector2(32, 32)
 	return_pos = return_pos + get_node("..").position
 	return return_pos
 	
