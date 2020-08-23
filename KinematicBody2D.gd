@@ -185,6 +185,13 @@ func _animate_girl(delta):
 		
 		$MCSprite.play("idle-front")
 		
+		
+		var dialogue = get_node("../BridgeControl/CanvasLayer/Dialogue")
+		dialogue.show()
+		print(dialogue.get_children())
+		var box_end = dialogue.get_children[1]
+		box_end._ready()
+		
 
 	animate_time_elapsed += delta
 
