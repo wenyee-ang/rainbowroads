@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://assets/walking/back/4.png" type="Texture" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://sound_assets/grass_footstep.wav" type="AudioStream" id=25]
 [ext_resource path="res://sound_assets/menu_selection.wav" type="AudioStream" id=26]
 [ext_resource path="res://sound_assets/sfx_step_grass_r.wav" type="AudioStream" id=27]
+[ext_resource path="res://Dialogue.tscn" type="PackedScene" id=28]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -35,14 +36,14 @@ animations = [ {
 "name": "walking_back",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 10 ) ],
-"loop": false,
-"name": "idle_back",
-"speed": 1.0
+"frames": [ ExtResource( 12 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "walking_left",
+"speed": 6.0
 }, {
-"frames": [ ExtResource( 15 ) ],
+"frames": [ ExtResource( 14 ) ],
 "loop": false,
-"name": "idle_left",
+"name": "idle_right",
 "speed": 1.0
 }, {
 "frames": [ ExtResource( 9 ) ],
@@ -60,15 +61,15 @@ animations = [ {
 "name": "walking_front",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 15 ) ],
 "loop": false,
-"name": "idle_right",
+"name": "idle_left",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "walking_left",
-"speed": 6.0
+"frames": [ ExtResource( 10 ) ],
+"loop": false,
+"name": "idle_back",
+"speed": 1.0
 } ]
 
 [node name="World" type="Node"]
@@ -123,3 +124,5 @@ volume_db = 8.0
 stream = ExtResource( 23 )
 volume_db = -3.0
 autoplay = true
+
+[node name="Dialogue" parent="." instance=ExtResource( 28 )]

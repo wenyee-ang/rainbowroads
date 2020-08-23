@@ -19,8 +19,8 @@ var dialogue_index = 0
 var finished = false
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	load_dialogue()
+#func _ready():
+	#load_dialogue()
 	
 
 func load_dialogue():
@@ -37,5 +37,6 @@ func load_dialogue():
 			
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	load_dialogue()
 	if Input.is_action_just_released("ui_accept"):
 		load_dialogue()
