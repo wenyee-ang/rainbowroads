@@ -11,6 +11,10 @@ func _ready():
 	print($Environment, $BridgeControl)
 	for i in range(0,6):
 		$BridgeControl.connect("bridge" + str(i+1), $Environment/BridgeTileMap, "_select_bridge", [i])
+		
+	$Environment/Area2D.connect("body_entered", $PlayerBody, "start_girl_animate")
+	
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -39,3 +43,6 @@ func _process(delta):
 			if closest_bridge:
 				$PlayerBody.position = closest_bridge
 		
+
+func please_help():
+	print('hehe')

@@ -36,6 +36,9 @@ func _physics_process(delta):
 		if entrance_animate:
 			
 			_animate_entrance(delta)
+			
+		if girl_animate:
+			_animate_girl(delta)
 		
 		return
 	
@@ -104,6 +107,10 @@ func _physics_process(delta):
 		else:
 			$MCSprite.play("idle_right")
 	
+	
+	if position.x > -125 and position.x < 500 and position.y > 1300 and position.y < 1875:
+		start_girl_animate()
+	
 	move_and_slide(motion)
 	
 
@@ -129,7 +136,7 @@ func _animate_entrance(delta):
 		animate_time_elapsed = 0.0
 		get_node("../BridgeControl/CanvasLayer/Dialogue").show()
 		get_node("../BridgeControl/CanvasLayer/Dialogue/DialogueBox")._ready()
-		
+	
 	
 	animate_time_elapsed += delta
 	
@@ -164,16 +171,24 @@ func _pickup_teddy(direction):
 	
 func _animate_girl(delta):
 	
-	var target = get_node("../Environment/Girl").position
+	var target = get_node("../Environment/Girl").position + get_node("../Environment").position
 	var velocity = position.direction_to(target) * 200
 	
 	move_and_slide(velocity)
 	
-	if position.distance_to(target) < 20:
+	print(position.distance_to(target))
+	
+	if position.distance_to(target) < 100:
 		girl_animate = false
 		accept_input = false
 		animate_time_elapsed = 0.0
 		
+		$MCSprite.play("idle-front")
+		
 
 	animate_time_elapsed += delta
 
+func start_girl_animate():
+	if has_teddy:
+		girl_animate = true
+		accept_input = false
