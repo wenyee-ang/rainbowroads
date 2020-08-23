@@ -49,6 +49,9 @@ func _physics_process(delta):
 	#Ivy's bit (god i hope i don't mess this up)
 	elif Input.is_action_just_released("ui_accept"):
 		get_node("../Environment/BridgeTileMap").place_tile(position, get_direction(last_direction))
+		
+	elif Input.is_action_just_released("ui_delete"):
+		get_node("../Environment/BridgeTileMap").delete_tile(position, get_direction(last_direction))
 	
 	else:
 		motion.x = 0

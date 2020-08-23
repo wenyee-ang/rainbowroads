@@ -68,6 +68,15 @@ func place_tile(player_pos, direction):
 	
 	set_cellv(target_cell, current_bridge)
 	
+func delete_tile(player_pos, direction):
+	
+	
+	var player_cell = tile_from_player_pos(player_pos)
+	var target_cell = player_cell + direction_vectors[direction_translate[direction]]
+	
+	
+	set_cellv(target_cell, -1)
+	
 
 func _path_from(from, to, direction_arrived):
 	
