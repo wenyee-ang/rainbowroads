@@ -64,13 +64,11 @@ func _physics_process(delta):
 	#Ivy's bit (god i hope i don't mess this up)
 	elif Input.is_action_just_released("ui_accept"):
 		get_node("../Environment/BridgeTileMap").place_tile(position, get_direction(last_direction))
-<<<<<<< HEAD
+		$Sparkling.play()
 		
 	elif Input.is_action_just_released("ui_delete"):
 		get_node("../Environment/BridgeTileMap").delete_tile(position, get_direction(last_direction))
-=======
-		$Sparkling.play()
->>>>>>> protag
+		$Delete.play()
 	
 	else:
 		motion.x = 0
