@@ -18,7 +18,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 600 ), Vector2( 0, -600 ) ]
+"values": [ Vector2( 0, 600 ), Vector2( 0, -800 ) ]
 }
 
 [sub_resource type="DynamicFont" id=2]
@@ -26,7 +26,7 @@ size = 50
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 32
+size = 19
 font_data = ExtResource( 1 )
 
 [node name="CreditsScreen" type="Control"]
@@ -48,8 +48,8 @@ anims/RollingText = SubResource( 1 )
 [node name="VBoxContainer" type="VBoxContainer" parent="AnimationPlayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -600.0
-margin_bottom = 564.0
+margin_top = -800.0
+margin_bottom = -649.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -68,22 +68,31 @@ __meta__ = {
 [node name="Text" type="Label" parent="AnimationPlayer/VBoxContainer"]
 margin_top = 133.0
 margin_right = 1024.0
-margin_bottom = 732.0
+margin_bottom = 751.0
 custom_fonts/font = SubResource( 3 )
-text = "M r and Mrs Dursley, of number four, Privet Drive, were
-proud to say that they were perfectly normal, thank
-you very much. They were the last people you’d expect to be
-involved in anything strange or mysterious, because they just
-didn’t hold with such nonsense.
- Mr Dursley was the director of a fi rm called Grunnings,
-which made drills. He was a big, beefy man with hardly
-any neck, although he did have a very large moustache.
-Mrs Dursley was thin and blonde and had nearly twice the
-usual amount of neck, which came in very useful as she spent
-so much of her time craning over garden fences, spying on the
-neighbours. The Dursleys had a small son called Dudley and
-in their opinion there was no fi ner boy anywhere.
- The Dursleys had everything they wanted, but "
+text = "- Sky, White Clouds, and Grass Graphics from https://kenney.nl/
+- Oniku Loop from https://www.dl-sounds.com/
+- Oniku Loop2 from https://www.dl-sounds.com/
+- Other sound effects from https://opengameart.org/ and https://www.fesliyanstudios.com/
+Clouds: https://www.deviantart.com/disabledpaladin/art/Pixel-Clouds-669313077
+
+House & fence: https://opengameart.org/content/pixel-house-and-fence credits given to www.instagram.com/fethalis
+
+inn: https://opengameart.org/content/rpg-town-pixel-art-assets
+
+house, house2: https://opengameart.org/content/orthographic-outdoor-tiles
+
+pine tree: https://opengameart.org/content/rpg-town-pixel-art-assets
+
+reg_tree: https://opengameart.org/content/tree-16x16
+
+Game created using GoDot Engine
+
+Programming: Wen Yee Ang, Jenny Wang, Ivy Brain
+Design: Cheryl Fang
+
+Team Yoinked
+"
 align = 1
 
 [node name="Background Music" type="AudioStreamPlayer2D" parent="."]
