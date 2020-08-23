@@ -54,14 +54,14 @@ animations = [ {
 "name": "idle_right",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 16 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 19 ) ],
-"loop": true,
-"name": "walking_right",
-"speed": 6.0
-}, {
 "frames": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "walking_front",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "walking_right",
 "speed": 6.0
 } ]
 
