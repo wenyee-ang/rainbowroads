@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://menu_assets/resized_title_background.png" type="Texture" id=1]
 [ext_resource path="res://scrolling_background.gd" type="Script" id=2]
 [ext_resource path="res://menu_assets/title_arch.png" type="Texture" id=3]
 [ext_resource path="res://menu_assets/Pangolin-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://GoToGame.gd" type="Script" id=5]
+[ext_resource path="res://sound_assets/Oniku Loop.wav" type="AudioStream" id=6]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -31,6 +33,7 @@ font_data = ExtResource( 4 )
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -109,3 +112,8 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Background Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+[connection signal="pressed" from="Buttons/Start" to="." method="_on_Start_pressed"]
