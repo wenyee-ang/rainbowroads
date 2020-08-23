@@ -23,7 +23,12 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("ui_right"): 
 		# right arrow key pressed
+		
 		$MCSprite.play("walking_right")
+		
+		if not $Walking.is_playing():
+			$Walking.play()
+			
 		motion.x = 200 
 		last_direction = motion
 		#motion increases by 100 pixels per sec to the right
@@ -31,27 +36,41 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("ui_left"):
 		# left arrow key pressed
 		$MCSprite.play("walking_left")
+		
+		if not $Walking.is_playing():
+			$Walking.play()
+		
 		motion.x = -200
 		last_direction = motion
 		
 	elif Input.is_action_pressed("ui_up"):
 		# up arrow key pressed
 		$MCSprite.play("walking_back")
+		if not $Walking.is_playing():
+			$Walking.play()
+		
 		motion.y = -200
 		last_direction = motion
 		
 	elif Input.is_action_pressed("ui_down"):
 		# down arrow key pressed
 		$MCSprite.play("walking_front")
+		if not $Walking.is_playing():
+			$Walking.play()
+		
 		motion.y = 200
 		last_direction = motion
 	
 	#Ivy's bit (god i hope i don't mess this up)
 	elif Input.is_action_just_released("ui_accept"):
 		get_node("../Environment/BridgeTileMap").place_tile(position, get_direction(last_direction))
+<<<<<<< HEAD
 		
 	elif Input.is_action_just_released("ui_delete"):
 		get_node("../Environment/BridgeTileMap").delete_tile(position, get_direction(last_direction))
+=======
+		$Sparkling.play()
+>>>>>>> protag
 	
 	else:
 		motion.x = 0
@@ -66,9 +85,10 @@ func _physics_process(delta):
 			$MCSprite.play("idle_left")
 		else:
 			$MCSprite.play("idle_right")
-		
+	
 	
 	move_and_slide(motion)
+	
 	
 
 
