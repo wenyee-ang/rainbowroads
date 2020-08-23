@@ -2,7 +2,7 @@ extends Control
 
 func _ready():
 	$LineHowtoPlay.hide()
-	$LineStart.hide()
+	$LineStart.hide()  
 	$CanvasLayer/Tutorial.hide()
 
 func _on_Start_pressed():
