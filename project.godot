@@ -16,8 +16,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Rainbow Roads"
-run/main_scene="res://TitleScreen.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://World.tscn"
+config/icon="res://assets/icon.png"
 
 [rendering]
 
