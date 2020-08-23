@@ -12,38 +12,38 @@
 [ext_resource path="res://menu_assets/Pangolin-Regular.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://menu_assets/cross icon.png" type="Texture" id=11]
 
-[sub_resource type="StyleBoxFlat" id=14]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 0.996078, 0, 1 )
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0, 0, 0, 0.768627 )
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxEmpty" id=7]
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 10 )
 
 [sub_resource type="DynamicFont" id=8]
 font_data = ExtResource( 10 )
 
-[sub_resource type="DynamicFont" id=9]
-font_data = ExtResource( 10 )
-
-[sub_resource type="DynamicFont" id=10]
-font_data = ExtResource( 10 )
-
-[sub_resource type="DynamicFont" id=11]
-font_data = ExtResource( 10 )
-
-[sub_resource type="DynamicFont" id=12]
-font_data = ExtResource( 10 )
-
-[sub_resource type="StyleBoxEmpty" id=13]
+[sub_resource type="StyleBoxEmpty" id=9]
 
 [node name="BridgeControl" type="Control"]
 script = ExtResource( 6 )
@@ -66,7 +66,7 @@ margin_left = 267.0
 margin_top = 496.0
 margin_right = 339.0
 margin_bottom = 552.0
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -77,7 +77,7 @@ margin_top = 560.74
 margin_right = 429.102
 margin_bottom = 616.74
 rect_rotation = -91.108
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -87,7 +87,7 @@ margin_left = 440.0
 margin_top = 493.0
 margin_right = 503.0
 margin_bottom = 554.0
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -97,7 +97,7 @@ margin_left = 527.0
 margin_top = 493.0
 margin_right = 590.0
 margin_bottom = 554.0
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -107,7 +107,7 @@ margin_left = 610.408
 margin_top = 492.159
 margin_right = 673.408
 margin_bottom = 554.159
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -117,7 +117,7 @@ margin_left = 699.0
 margin_top = 491.0
 margin_right = 763.0
 margin_bottom = 554.0
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -287,7 +287,7 @@ margin_top = 34.4038
 margin_right = 179.429
 margin_bottom = 116.404
 rect_scale = Vector2( 7.63733, 6.44079 )
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -306,7 +306,7 @@ margin_top = 220.421
 margin_right = 894.678
 margin_bottom = 302.421
 rect_scale = Vector2( 2.27185, 1.96045 )
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -322,7 +322,7 @@ margin_top = 86.267
 margin_right = 358.179
 margin_bottom = 100.267
 rect_scale = Vector2( 1.65189, 1.86131 )
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 4 )
 text = "Use Arrow Keys or WASD to move."
 align = 1
 __meta__ = {
@@ -335,7 +335,7 @@ margin_top = 179.061
 margin_right = 595.35
 margin_bottom = 193.061
 rect_scale = Vector2( 1.65189, 1.86131 )
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 5 )
 text = "Use the Keys 1 to 6 or Click on the Icons below to Select a Rainbow Tile."
 align = 1
 __meta__ = {
@@ -348,7 +348,7 @@ margin_top = 278.198
 margin_right = 593.35
 margin_bottom = 292.198
 rect_scale = Vector2( 1.65189, 1.86131 )
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 6 )
 text = "Press Enter to Set Down a Rainbow Tile."
 __meta__ = {
 "_edit_use_anchors_": false
@@ -356,11 +356,11 @@ __meta__ = {
 
 [node name="Label4" type="Label" parent="CanvasLayer/Tutorial/Text"]
 margin_left = 126.936
-margin_top = 373.779
+margin_top = 364.435
 margin_right = 587.936
-margin_bottom = 387.779
+margin_bottom = 384.435
 rect_scale = Vector2( 1.65189, 1.86131 )
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 7 )
 text = "Press Backspace to Delete a Rainbow Tile."
 __meta__ = {
 "_edit_use_anchors_": false
@@ -372,7 +372,7 @@ margin_top = 451.904
 margin_right = 589.35
 margin_bottom = 465.904
 rect_scale = Vector2( 1.65189, 1.86131 )
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 8 )
 text = "Follow the Arrow Sign Boards and Start Building!"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -384,7 +384,7 @@ margin_top = 38.2478
 margin_right = 851.18
 margin_bottom = 120.248
 rect_scale = Vector2( 1.39149, 1.35726 )
-custom_styles/panel = SubResource( 13 )
+custom_styles/panel = SubResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

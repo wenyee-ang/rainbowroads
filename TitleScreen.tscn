@@ -260,9 +260,9 @@ __meta__ = {
 
 [node name="Label4" type="Label" parent="CanvasLayer/Tutorial/Text"]
 margin_left = 126.936
-margin_top = 373.779
+margin_top = 369.284
 margin_right = 587.936
-margin_bottom = 387.779
+margin_bottom = 389.284
 rect_scale = Vector2( 1.65189, 1.86131 )
 custom_fonts/font = SubResource( 11 )
 text = "Press Backspace to Delete a Rainbow Tile."
