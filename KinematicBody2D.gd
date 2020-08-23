@@ -16,10 +16,24 @@ func get_direction(direction: Vector2):
 		return "right"
 	return "down"
 
+var accept_input = false
+var entrance_animate = false
+var animate_time_elapsed = 0.0
+
+func _ready():
+	hide()
+	
 
 func _physics_process(delta):
 	
 	var mcSprite = get_node("MCSprite")
+	
+	if !accept_input:
+		if entrance_animate:
+			
+			_animate_entrance(delta)
+		
+		return
 	
 	if Input.is_action_pressed("ui_right"): 
 		# right arrow key pressed
@@ -87,6 +101,32 @@ func _physics_process(delta):
 	
 	move_and_slide(motion)
 	
+
+
+func _animate_entrance(delta):
 	
+	
+	if animate_time_elapsed < 1:
+		pass
+		
+	
+	elif animate_time_elapsed < 1.5:
+		show()
+	
+	elif animate_time_elapsed < 2:
+		
+		move_and_slide(Vector2(40,150))
+		$MCSprite.play("walking_front")
+		
+	else:
+		entrance_animate = false
+		accept_input = true
+	
+	
+	
+	animate_time_elapsed += delta
+	
+	
+
 
 
