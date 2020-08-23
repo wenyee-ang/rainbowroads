@@ -17,6 +17,7 @@ func _ready():
 	$CanvasLayer/Borders/Container5.hide()
 	$CanvasLayer/Borders/Container6.hide()
 	$CanvasLayer/Dialogue.hide()
+	$CanvasLayer/TeddyBear.hide()
 	
 	connect("bridge1", self, "make_visible", ["1"])
 	connect("bridge2", self, "make_visible", ["2"])
@@ -58,8 +59,10 @@ func _process(delta):
 		make_hidden()
 		emit_signal("bridge6")
 		print("bridge6")
-		
-
+	
+	elif ((get_node("../PlayerBody").has_teddy) == true):
+		print("has teddy bear")
+		$CanvasLayer/TeddyBear.show()
 
 func _on_Bridge1_pressed():
 	make_hidden()
