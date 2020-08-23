@@ -107,10 +107,12 @@ func _animate_entrance(delta):
 	
 	
 	if animate_time_elapsed < 1:
-		pass
+		if not $CloseDoor.is_playing():
+			$CloseDoor.play()
 		
 	
 	elif animate_time_elapsed < 1.5:
+		
 		show()
 	
 	elif animate_time_elapsed < 2:
