@@ -22,6 +22,8 @@ var accept_input = false
 var entrance_animate = false
 var animate_time_elapsed = 0.0
 
+var girl_animate = false
+
 func _ready():
 	hide()
 	
@@ -124,6 +126,7 @@ func _animate_entrance(delta):
 	else:
 		entrance_animate = false
 		accept_input = false
+		animate_time_elapsed = 0.0
 		get_node("../BridgeControl/CanvasLayer/Dialogue").show()
 		get_node("../BridgeControl/CanvasLayer/Dialogue/DialogueBox")._ready()
 		
@@ -159,7 +162,18 @@ func _pickup_teddy(direction):
 	return false
 	
 	
+func _animate_girl(delta):
 	
+	var target = get_node("../Environment/Girl").position
+	var velocity = position.direction_to(target) * 200
 	
+	move_and_slide(velocity)
+	
+	if position.distance_to(target) < 20:
+		girl_animate = false
+		accept_input = false
+		animate_time_elapsed = 0.0
+		
 
+	animate_time_elapsed += delta
 
