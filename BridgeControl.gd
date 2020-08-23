@@ -61,7 +61,7 @@ func _process(delta):
 		print("bridge6")
 	
 	elif ((get_node("../PlayerBody").has_teddy) == true):
-		print("has teddy bear")
+		
 		$CanvasLayer/TeddyBear.show()
 
 func _on_Bridge1_pressed():
