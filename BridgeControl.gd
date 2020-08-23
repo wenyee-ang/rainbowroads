@@ -110,6 +110,8 @@ func make_hidden():
 
 func _on_exit_pressed():
 	$CanvasLayer/Tutorial.hide()
+	if get_node("../PlayerBody").accept_input == false:
+		get_node("../PlayerBody").entrance_animate = true
 
 func _on_exit_mouse_entered():
 	get_node("../PlayerBody/Select").play()
