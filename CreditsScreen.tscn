@@ -1,0 +1,100 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://menu_assets/Pangolin-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://menu_assets/resized_title_background.png" type="Texture" id=2]
+[ext_resource path="res://sound_assets/Oniku Loop.wav" type="AudioStream" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "RollingText"
+length = 5.0
+step = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/VBoxContainer:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 600 ), Vector2( 0, -800 ) ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 19
+font_data = ExtResource( 1 )
+
+[node name="CreditsScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "RollingText"
+anims/RollingText = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AnimationPlayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -800.0
+margin_bottom = -649.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThankyouForPlaying" type="Label" parent="AnimationPlayer/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 129.0
+custom_fonts/font = SubResource( 2 )
+text = "THANKYOU FOR PLAYING!
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="AnimationPlayer/VBoxContainer"]
+margin_top = 133.0
+margin_right = 1024.0
+margin_bottom = 751.0
+custom_fonts/font = SubResource( 3 )
+text = "- Sky, White Clouds, and Grass Graphics from https://kenney.nl/
+- Oniku Loop from https://www.dl-sounds.com/
+- Oniku Loop2 from https://www.dl-sounds.com/
+- Other sound effects from https://opengameart.org/ and https://www.fesliyanstudios.com/
+Clouds: https://www.deviantart.com/disabledpaladin/art/Pixel-Clouds-669313077
+
+House & fence: https://opengameart.org/content/pixel-house-and-fence credits given to www.instagram.com/fethalis
+
+inn: https://opengameart.org/content/rpg-town-pixel-art-assets
+
+house, house2: https://opengameart.org/content/orthographic-outdoor-tiles
+
+pine tree: https://opengameart.org/content/rpg-town-pixel-art-assets
+
+reg_tree: https://opengameart.org/content/tree-16x16
+
+Game created using GoDot Engine
+
+Programming: Wen Yee Ang, Jenny Wang, Ivy Brain
+Design: Cheryl Fang
+
+Team Yoinked
+"
+align = 1
+
+[node name="Background Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
