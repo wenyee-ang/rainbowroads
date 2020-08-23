@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://menu_assets/Pangolin-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://menu_assets/resized_title_background.png" type="Texture" id=2]
+[ext_resource path="res://sound_assets/Oniku Loop.wav" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "RollingText"
@@ -17,7 +18,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 600 ), Vector2( 0, -900 ) ]
+"values": [ Vector2( 0, 600 ), Vector2( 0, -600 ) ]
 }
 
 [sub_resource type="DynamicFont" id=2]
@@ -47,8 +48,8 @@ anims/RollingText = SubResource( 1 )
 [node name="VBoxContainer" type="VBoxContainer" parent="AnimationPlayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -900.0
-margin_bottom = -682.0
+margin_top = -600.0
+margin_bottom = 564.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -67,22 +68,24 @@ __meta__ = {
 [node name="Text" type="Label" parent="AnimationPlayer/VBoxContainer"]
 margin_top = 133.0
 margin_right = 1024.0
-margin_bottom = 818.0
+margin_bottom = 732.0
 custom_fonts/font = SubResource( 3 )
-text = "dfgdgd
-dfgd
-fgdfgdfgdfgdf
-gdfgdfgfdgdfgfd
-gdfgdfgdfgdfgdfg
-dfgdfgdfgdfgdfg
-dfgdfgdfgfdgdfgdf
-gdfgdfgdfgdfgdfgdfgdf
-gdfgdfgdfgdfgdfgdf
-dfgdfgdfgdfgdfgdfgdfg
-dfgdfgdfgdfrgdfgdfg
-dfgdfgdfgdfgdfdfg
-fghfghfghfghfghfghf
-ghfghfghfghfghfghfgh
-fghfghfghfghfhfg
-"
+text = "M r and Mrs Dursley, of number four, Privet Drive, were
+proud to say that they were perfectly normal, thank
+you very much. They were the last people you’d expect to be
+involved in anything strange or mysterious, because they just
+didn’t hold with such nonsense.
+ Mr Dursley was the director of a fi rm called Grunnings,
+which made drills. He was a big, beefy man with hardly
+any neck, although he did have a very large moustache.
+Mrs Dursley was thin and blonde and had nearly twice the
+usual amount of neck, which came in very useful as she spent
+so much of her time craning over garden fences, spying on the
+neighbours. The Dursleys had a small son called Dudley and
+in their opinion there was no fi ner boy anywhere.
+ The Dursleys had everything they wanted, but "
 align = 1
+
+[node name="Background Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
