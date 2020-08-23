@@ -48,12 +48,16 @@ func _ready():
 #func _process(delta):
 #	pass
 
-
-func place_tile(player_pos, direction):
-	print(player_pos, get_node("..").position)
+func tile_from_player_pos(player_pos):
 	var new_pos = player_pos - get_node("..").position
 	new_pos = new_pos + Vector2(0,48)
-	var player_cell = world_to_map(new_pos)
+	return world_to_map(new_pos)
+	
+
+func place_tile(player_pos, direction):
+	
+	
+	var player_cell = tile_from_player_pos(player_pos)
 	var target_cell
 	
 	if get_cellv(player_cell) == -1:
