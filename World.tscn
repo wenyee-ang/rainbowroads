@@ -69,6 +69,8 @@ animations = [ {
 [node name="World" type="Node"]
 script = ExtResource( 22 )
 
+[node name="BridgeControl" parent="." instance=ExtResource( 21 )]
+
 [node name="PlayerBody" type="KinematicBody2D" parent="."]
 position = Vector2( 416, 256 )
 z_index = 4
@@ -95,5 +97,3 @@ drag_margin_bottom = 0.4
 editor_draw_drag_margin = true
 
 [node name="Environment" parent="." instance=ExtResource( 20 )]
-
-[node name="BridgeControl" parent="." instance=ExtResource( 21 )]

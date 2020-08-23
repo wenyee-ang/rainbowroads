@@ -8,7 +8,9 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	print($Environment, $BridgeControl)
+	for i in range(0,6):
+		$BridgeControl.connect("bridge" + str(i+1), $Environment/BridgeTileMap, "_select_bridge", [i])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
