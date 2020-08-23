@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://assets/walking/back/4.png" type="Texture" id=2]
@@ -23,6 +23,10 @@
 [ext_resource path="res://BridgeControl.tscn" type="PackedScene" id=21]
 [ext_resource path="res://CollisionHandler.gd" type="Script" id=22]
 [ext_resource path="res://sound_assets/Oniku Loop2.wav" type="AudioStream" id=23]
+[ext_resource path="res://sound_assets/putting_down.wav" type="AudioStream" id=24]
+[ext_resource path="res://sound_assets/grass_footstep.wav" type="AudioStream" id=25]
+[ext_resource path="res://sound_assets/menu_selection.wav" type="AudioStream" id=26]
+[ext_resource path="res://sound_assets/sfx_step_grass_r.wav" type="AudioStream" id=27]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -31,15 +35,20 @@ animations = [ {
 "name": "walking_back",
 "speed": 6.0
 }, {
+"frames": [ ExtResource( 16 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "walking_right",
+"speed": 6.0
+}, {
 "frames": [ ExtResource( 10 ) ],
 "loop": false,
 "name": "idle_back",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 16 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 19 ) ],
-"loop": true,
-"name": "walking_right",
-"speed": 6.0
+"frames": [ ExtResource( 14 ) ],
+"loop": false,
+"name": "idle_right",
+"speed": 1.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
@@ -54,11 +63,6 @@ animations = [ {
 "frames": [ ExtResource( 9 ) ],
 "loop": false,
 "name": "idle_front",
-"speed": 1.0
-}, {
-"frames": [ ExtResource( 14 ) ],
-"loop": false,
-"name": "idle_right",
 "speed": 1.0
 }, {
 "frames": [ ExtResource( 12 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
@@ -97,8 +101,24 @@ drag_margin_right = 0.4
 drag_margin_bottom = 0.4
 editor_draw_drag_margin = true
 
+[node name="Sparkling" type="AudioStreamPlayer2D" parent="PlayerBody"]
+stream = ExtResource( 24 )
+volume_db = -8.0
+
+[node name="Walking" type="AudioStreamPlayer2D" parent="PlayerBody"]
+stream = ExtResource( 25 )
+volume_db = -4.0
+
+[node name="Select" type="AudioStreamPlayer2D" parent="PlayerBody"]
+stream = ExtResource( 26 )
+
+[node name="Delete" type="AudioStreamPlayer2D" parent="PlayerBody"]
+stream = ExtResource( 27 )
+volume_db = 8.0
+
 [node name="Environment" parent="." instance=ExtResource( 20 )]
 
 [node name="GameMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 23 )
+volume_db = -3.0
 autoplay = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://menu_assets/resized_title_background.png" type="Texture" id=1]
 [ext_resource path="res://scrolling_background.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://menu_assets/Pangolin-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://GoToGame.gd" type="Script" id=5]
 [ext_resource path="res://sound_assets/Oniku Loop.wav" type="AudioStream" id=6]
+[ext_resource path="res://sound_assets/menu_selection.wav" type="AudioStream" id=7]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -29,6 +30,10 @@ font_data = ExtResource( 4 )
 [sub_resource type="DynamicFont" id=4]
 size = 27
 font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxLine" id=5]
+color = Color( 0.556863, 0.956863, 1, 1 )
+thickness = 3
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
@@ -113,7 +118,37 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Select" type="AudioStreamPlayer" parent="Buttons"]
+stream = ExtResource( 7 )
+
+[node name="LineStart" type="PanelContainer" parent="."]
+margin_left = 456.157
+margin_top = 339.071
+margin_right = 956.156
+margin_bottom = 347.071
+rect_scale = Vector2( 0.22501, 0.63177 )
+custom_styles/panel = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineHowtoPlay" type="PanelContainer" parent="."]
+margin_left = 428.656
+margin_top = 381.163
+margin_right = 928.656
+margin_bottom = 389.163
+rect_scale = Vector2( 0.336027, 0.894911 )
+custom_styles/panel = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Background Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
 autoplay = true
+[connection signal="mouse_entered" from="Buttons/Start" to="." method="_on_Start_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/Start" to="." method="_on_Start_mouse_exited"]
 [connection signal="pressed" from="Buttons/Start" to="." method="_on_Start_pressed"]
+[connection signal="mouse_entered" from="Buttons/HowToPlay" to="." method="_on_HowToPlay_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/HowToPlay" to="." method="_on_HowToPlay_mouse_exited"]
+[connection signal="pressed" from="Buttons/HowToPlay" to="." method="_on_HowToPlay_pressed"]
