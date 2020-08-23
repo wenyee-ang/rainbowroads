@@ -78,15 +78,24 @@ func delete_tile(player_pos, direction):
 	set_cellv(target_cell, -1)
 	
 
-func closest_bridge_pos(player_pos, direction):
+func closest_bridge_pos(player_pos):
 	
 	var player_cell = tile_from_player_pos(player_pos)
-	var behind_cell = player_cell - direction_vectors[direction_translate[direction]]
-	var return_pos = map_to_world(behind_cell)
-	return_pos = return_pos - Vector2(0,48)
-	return_pos += Vector2(32, 32)
-	return_pos = return_pos + get_node("..").position
-	return return_pos
+	var behind_cell = false
+	for i in range(0,4):
+		if get_cellv(player_cell+direction_vectors[i]) != -1:
+			behind_cell = player_cell + direction_vectors[i]
+			
+			
+	if behind_cell:
+		
+		var return_pos = map_to_world(behind_cell)
+		return_pos = return_pos - Vector2(0,48)
+		return_pos += Vector2(32, 32)
+		return_pos = return_pos + get_node("..").position
+		return return_pos
+	
+	return false
 	
 
 

@@ -33,9 +33,9 @@ func _process(delta):
 		
 		if $Environment/BaseTileMap.get_cellv(base_cell) == -1 :
 			var closest_bridge = $Environment/BridgeTileMap.closest_bridge_pos(
-				$PlayerBody.position, 
-				$PlayerBody.get_direction($PlayerBody.last_direction)
+				$PlayerBody.position
 			)
 			
-			$PlayerBody.position = closest_bridge
+			if closest_bridge:
+				$PlayerBody.position = closest_bridge
 		
