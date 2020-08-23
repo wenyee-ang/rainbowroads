@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://assets/bridge4.png" type="Texture" id=1]
 [ext_resource path="res://assets/bridge5.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://DialogueBox.gd" type="Script" id=13]
 [ext_resource path="res://assets/World Tilemap/teddy.png" type="Texture" id=14]
 [ext_resource path="res://DialogueBoxEnd.gd" type="Script" id=15]
+[ext_resource path="res://npc_assets/dialog_MC_girl.png" type="Texture" id=16]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 0.996078, 0, 1 )
@@ -473,32 +474,37 @@ __meta__ = {
 
 [node name="Tween" type="Tween" parent="CanvasLayer/Dialogue/DialogueBox"]
 
-[node name="DialogueBoxEnd" type="Control" parent="CanvasLayer/Dialogue"]
+[node name="DialogueBoxEnd" type="Control" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogueBox1" type="Control" parent="CanvasLayer/DialogueBoxEnd"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -472.0
-margin_top = -560.0
-margin_right = -472.0
-margin_bottom = -560.0
+margin_left = 20.0
+margin_right = 20.0
 script = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Dialogue/DialogueBoxEnd"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DialogueBoxEnd/DialogueBox1"]
 margin_left = 108.255
 margin_top = 37.6619
 margin_right = 853.255
 margin_bottom = 500.662
-texture = ExtResource( 12 )
+texture = ExtResource( 16 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextMC" type="RichTextLabel" parent="CanvasLayer/Dialogue/DialogueBoxEnd"]
+[node name="TextMC" type="RichTextLabel" parent="CanvasLayer/DialogueBoxEnd/DialogueBox1"]
 margin_left = 145.0
 margin_top = 336.0
 margin_right = 825.0
@@ -516,7 +522,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tween" type="Tween" parent="CanvasLayer/Dialogue/DialogueBoxEnd"]
+[node name="Tween" type="Tween" parent="CanvasLayer/DialogueBoxEnd/DialogueBox1"]
 [connection signal="pressed" from="CanvasLayer/Bridge1" to="." method="_on_Bridge1_pressed"]
 [connection signal="pressed" from="CanvasLayer/Bridge2" to="." method="_on_Bridge2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Bridge3" to="." method="_on_Bridge3_pressed"]

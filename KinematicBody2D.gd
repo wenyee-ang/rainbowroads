@@ -116,11 +116,11 @@ func _physics_process(delta):
 
 
 func _animate_entrance(delta):
+	print("back to animate entrance")
 	if animate_time_elapsed < 1:
 		if not $CloseDoor.is_playing():
 			$CloseDoor.play()
 		
-	
 	elif animate_time_elapsed < 1.5:
 		show()
 	
@@ -131,6 +131,7 @@ func _animate_entrance(delta):
 		
 		
 	else:
+		print("Back to else")
 		entrance_animate = false
 		accept_input = false
 		animate_time_elapsed = 0.0
@@ -170,29 +171,35 @@ func _pickup_teddy(direction):
 	
 	
 func _animate_girl(delta):
-	
 	var target = get_node("../Environment/Girl").position + get_node("../Environment").position
-	var velocity = position.direction_to(target) * 200
+	print("Back to animate girl")
 	
-	move_and_slide(velocity)
-	
-	print(position.distance_to(target))
-	
-	if position.distance_to(target) < 100:
+	if (position.distance_to(target) < 100):
+		print("back to if")
 		girl_animate = false
 		accept_input = false
 		animate_time_elapsed = 0.0
 		
 		$MCSprite.play("idle-front")
 		
+		get_node("../BridgeControl/CanvasLayer/DialogueBoxEnd").show()
+		get_node("../BridgeControl/CanvasLayer/DialogueBoxEnd/DialogueBox1").start()
 		
-		var dialogue = get_node("../BridgeControl/CanvasLayer/Dialogue")
-		dialogue.show()
-		print(dialogue.get_children())
-		var box_end = dialogue.get_children[1]
-		box_end._ready()
+		#var dialogue = get_node("../BridgeControl/CanvasLayer/DialogueBoxEnd")
+		#dialogue.show()
 		
-
+		#get_node("../BridgeControl/CanvasLayer/DialogueBoxEnd/DialogueBox1").start_dialogue()
+		
+		#print(dialogue.get_children())
+		#var box_end = dialogue.get_children[1]
+		#box_end._ready()
+	else:
+		var velocity = position.direction_to(target) * 200
+	
+		move_and_slide(velocity)
+	
+		print(position.distance_to(target))
+		
 	animate_time_elapsed += delta
 
 func start_girl_animate():

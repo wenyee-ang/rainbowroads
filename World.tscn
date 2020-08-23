@@ -36,25 +36,20 @@ animations = [ {
 "name": "walking_back",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 14 ) ],
-"loop": false,
-"name": "idle_right",
-"speed": 1.0
-}, {
 "frames": [ ExtResource( 10 ) ],
 "loop": false,
 "name": "idle_back",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": false,
+"name": "idle_right",
 "speed": 1.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "walking_front",
 "speed": 6.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": false,
-"name": "idle_front",
-"speed": 1.0
 }, {
 "frames": [ ExtResource( 15 ) ],
 "loop": false,
@@ -70,6 +65,11 @@ animations = [ {
 "loop": true,
 "name": "walking_left",
 "speed": 6.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": false,
+"name": "idle_front",
+"speed": 1.0
 } ]
 
 [node name="World" type="Node"]

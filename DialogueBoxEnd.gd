@@ -19,19 +19,34 @@ var dialogue_index = 0
 var finished = false
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func start():
+	if (dialogue_index > 10):
+		dialogue_index = 0
+	show()
 	load_dialogue()
 
+#func start_dialogue():
+	#load_dialogue()
+	
 func load_dialogue():
+	
 	if dialogue_index < mc_dialogue.size():
+		print(dialogue_index)
+		print(mc_dialogue[dialogue_index])
 		$TextMC.bbcode_text = mc_dialogue[dialogue_index]
 		$TextMC.percent_visible = 0
 		$Tween.interpolate_property($TextMC, "percent_visible", 0, 1, 0.8, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 		$Tween.start()
+		print("dialogue loaded!")
+		
 	else:
 		get_node("../../../../PlayerBody").accept_input = true
-		queue_free()
-	dialogue_index += 1
+		hide()
+		#queue_free()
+	
+	dialogue_index = dialogue_index + 1
+	
+	
 	
 			
 # Called every frame. 'delta' is the elapsed time since the previous frame.

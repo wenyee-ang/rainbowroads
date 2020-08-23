@@ -21,6 +21,7 @@ var finished = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	dialogue_index = 0
 	load_dialogue()
 
 func load_dialogue():
@@ -31,7 +32,8 @@ func load_dialogue():
 		$Tween.start()
 	else:
 		get_node("../../../../PlayerBody").accept_input = true
-		queue_free()
+		hide()
+		#queue_free()
 	dialogue_index += 1
 	
 			
