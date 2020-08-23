@@ -95,6 +95,8 @@ func make_visible(num):
 	var new_path = path + num
 	var node = NodePath(new_path)
 	get_node(node).show()
+	if not (get_node("../PlayerBody/Select").is_playing()):
+		get_node("../PlayerBody/Select").play()
 	
 
 func make_hidden():

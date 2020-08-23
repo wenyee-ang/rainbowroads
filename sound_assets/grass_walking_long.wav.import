@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/grass_walking_long.wav-077a0a893ff109c01cb1926e1273742a.sample"
+
+[deps]
+
+source_file="res://sound_assets/grass_walking_long.wav"
+dest_files=[ "res://.import/grass_walking_long.wav-077a0a893ff109c01cb1926e1273742a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
