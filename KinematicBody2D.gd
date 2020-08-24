@@ -178,6 +178,7 @@ func _animate_girl(delta):
 		print("back to if")
 		girl_animate = false
 		accept_input = false
+		has_teddy = false
 		animate_time_elapsed = 0.0
 		
 		$MCSprite.play("idle-front")
