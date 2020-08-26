@@ -21,7 +21,7 @@ func _process(delta):
 
 
 func _on_FadetoBlack_animation_finished(anim_name):
-	print("finished")
+	#print("finished")
 	fade_end = true;
 	scroll_end = false;
 	$AnimationPlayer/FadetoBlack.stop()
