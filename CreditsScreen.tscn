@@ -1,12 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://menu_assets/Pangolin-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://menu_assets/resized_title_background.png" type="Texture" id=2]
 [ext_resource path="res://sound_assets/Oniku Loop.wav" type="AudioStream" id=3]
+[ext_resource path="res://CreditsScreen.gd" type="Script" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "RollingText"
-length = 5.0
+length = 18.0
 step = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimationPlayer/VBoxContainer:rect_position")
@@ -15,7 +16,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 5 ),
+"times": PoolRealArray( 0, 15 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 600 ), Vector2( 0, -800 ) ]
@@ -29,9 +30,55 @@ font_data = ExtResource( 1 )
 size = 19
 font_data = ExtResource( 1 )
 
+[sub_resource type="Animation" id=4]
+resource_name = "Fade To Black"
+length = 8.0
+step = 0.027
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Black:color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( -0.243, 4.644 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Black:color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( -0.243, 4.644 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Black:color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( -0.243, 4.644 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Black:color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 7.26934e-09, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( -0.189, 4.644 )
+}
+
 [node name="CreditsScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -39,7 +86,15 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -89.0
+margin_top = -152.145
+margin_right = 150.0
+margin_bottom = 59.8554
+rect_scale = Vector2( 1.1506, 1.25215 )
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "RollingText"
@@ -48,17 +103,17 @@ anims/RollingText = SubResource( 1 )
 [node name="VBoxContainer" type="VBoxContainer" parent="AnimationPlayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -800.0
-margin_bottom = -649.0
+margin_top = 600.0
+margin_bottom = 1226.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ThankyouForPlaying" type="Label" parent="AnimationPlayer/VBoxContainer"]
+[node name="ThankyouForPlaying2" type="Label" parent="AnimationPlayer/VBoxContainer"]
 margin_right = 1024.0
 margin_bottom = 129.0
 custom_fonts/font = SubResource( 2 )
-text = "THANKYOU FOR PLAYING!
+text = "CREDITS
 "
 align = 1
 __meta__ = {
@@ -68,25 +123,23 @@ __meta__ = {
 [node name="Text" type="Label" parent="AnimationPlayer/VBoxContainer"]
 margin_top = 133.0
 margin_right = 1024.0
-margin_bottom = 751.0
+margin_bottom = 697.0
 custom_fonts/font = SubResource( 3 )
-text = "- Sky, White Clouds, and Grass Graphics from https://kenney.nl/
-- Oniku Loop from https://www.dl-sounds.com/
-- Oniku Loop2 from https://www.dl-sounds.com/
-- Other sound effects from https://opengameart.org/ and https://www.fesliyanstudios.com/
+text = "Graphics:
+Sky, White Clouds, and Grass Graphics from https://kenney.nl/
 Clouds: https://www.deviantart.com/disabledpaladin/art/Pixel-Clouds-669313077
-
 House & fence: https://opengameart.org/content/pixel-house-and-fence credits given to www.instagram.com/fethalis
-
 inn: https://opengameart.org/content/rpg-town-pixel-art-assets
-
 house, house2: https://opengameart.org/content/orthographic-outdoor-tiles
-
 pine tree: https://opengameart.org/content/rpg-town-pixel-art-assets
-
 reg_tree: https://opengameart.org/content/tree-16x16
 
-Game created using GoDot Engine
+Audio:
+Oniku Loop from https://www.dl-sounds.com/
+Oniku Loop2 from https://www.dl-sounds.com/
+Other sound effects from https://opengameart.org/ and https://www.fesliyanstudios.com/
+
+Game created using GoDot Engine.
 
 Programming: Wen Yee Ang, Jenny Wang, Ivy Brain
 Design: Cheryl Fang
@@ -95,6 +148,43 @@ Team Yoinked
 "
 align = 1
 
-[node name="Background Music" type="AudioStreamPlayer2D" parent="."]
+[node name="ThankyouForPlaying" type="Label" parent="AnimationPlayer/VBoxContainer"]
+light_mask = 4
+margin_top = 701.0
+margin_right = 1024.0
+margin_bottom = 1226.0
+custom_fonts/font = SubResource( 2 )
+text = "
+
+
+
+
+
+THANK YOU FOR PLAYING!
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FadetoBlack" type="AnimationPlayer" parent="AnimationPlayer"]
+"anims/Fade To Black" = SubResource( 4 )
+
+[node name="Black" type="ColorRect" parent="AnimationPlayer"]
+modulate = Color( 0, 0, 0, 1 )
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 25.6755, 15.4249 )
+color = Color( 0, 0, 0, 0.0279409 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 autoplay = true
+
+[node name="Tween" type="Tween" parent="BackgroundMusic"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer/FadetoBlack" to="." method="_on_FadetoBlack_animation_finished"]
+[connection signal="tween_all_completed" from="BackgroundMusic/Tween" to="." method="_on_Tween_tween_all_completed"]
